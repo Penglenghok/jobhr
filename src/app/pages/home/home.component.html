@@ -1,0 +1,47 @@
+<div class="home">
+  <div class="container">
+    <div class="overview">
+      <div class="text">
+        <h1>Job Category</h1>
+        <app-job-category></app-job-category>
+      </div>
+      <div class="box-img">
+        <div
+    class="vertical-container"
+    fxLayout="column"
+    fxLayoutAlign="stretch"
+    fxFlex="50%">
+    <div class="box-title"></div>
+
+    <div class="content-container">
+      <swiper
+        *ngIf="type == 'component' && show"
+        class="swiper-container"
+        fxFlex="auto"
+        [config]="config"
+        [disabled]="disabled"
+        (indexChange)="onIndexChange($event)"
+        (swiperTransitionStart)="onSwiperEvent('transitionStart')"
+        (swiperTransitionEnd)="onSwiperEvent('transitionEnd')"
+      >
+        <div
+          *ngFor="let slide of slides"
+          class="swiper-slide"
+          style="width: 500px"
+        >
+          <div fxLayout="column" fxLayoutAlign="center center" fxFlexFill>
+            {{ slide }}
+          </div>
+        </div>
+      </swiper>
+    </div>
+  </div>
+      </div>
+
+
+    </div>
+    <h1>Discover Your Dream Job With Us</h1>
+    <app-job-list></app-job-list>
+  </div>
+</div>
+

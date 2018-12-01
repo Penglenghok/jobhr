@@ -1,0 +1,53 @@
+@import"/Users/hokpengleng/Desktop/jobhr/src/assets/variable.scss";
+.job{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .item{
+    flex: 1;
+    margin:0 15px;
+    padding: 10px;
+    border-radius: 10px;
+    flex-basis: calc(100%/5);
+    position: relative;
+    .mat-card-header{
+      background-color:$jobtitle;
+      height: 150px;
+      display: flex;
+      border-radius: 10px;
+      align-items: center;
+      i{
+        font-size: 50px;
+        color:$white;
+      }
+
+    .mat-card-avatar{
+      padding: 0 15px;
+    }
+        .mat-card-title{
+          color:$white;
+          margin: 15px 0;
+        }
+
+        .mat-card-subtitle{
+          color: white;
+        }
+    }
+
+    .mat-card-content{
+      padding: 15px;
+      height: 200px;
+      p{
+        line-height: 25px;
+        font-size: 16px;
+      }
+    }
+    .mat-card-actions{
+      padding: 15px;
+    }
+
+  }
+}

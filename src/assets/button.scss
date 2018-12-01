@@ -1,0 +1,11 @@
+@import"./variable.scss";
+.button {
+  .mat-button{
+    padding: 12px 30px;
+    border:solid 1px $borderbutton;
+    margin:0 5px;
+    border-radius: 6px;
+    outline: none;
+    text-transform: uppercase;
+  }
+}
