@@ -6,7 +6,7 @@
     <div class="menu">
       <div class="button">
       <button mat-button *ngIf="auth?.isLog" (click)="auth.signOut()">Sign out</button>
-        <button mat-button>{{auth?.user?.displayName}}</button>
+        <button mat-button *ngIf="auth.isLog">{{auth?.user?.displayName}}</button>
         <button mat-button *ngIf="!auth?.isLog">Sign In</button>
       </div>
     </div>

@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       this.form.disable();
       const {email,password}=f;
       this.auth.login(email,password).then(()=>{
-        this.router.navigate(['/']);
+        this.router.navigate(['/admin']);
       }).catch(error=>{
         this.error=error;
         this.form.enable();
