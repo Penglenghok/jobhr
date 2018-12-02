@@ -3,6 +3,7 @@ import { Category } from '../../store/category.store';
 import { Slide } from '../../store/slide.store';
 import { Joblist } from '../../store/joblist.store';
 import { Partner } from '../../store/partner.store';
+import { Auth } from '../../store/auth.store';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
   SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 
@@ -13,10 +14,15 @@ import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public store:Category,
-    public slide:Slide,public jobs:Joblist,public partner:Partner) { }
+  constructor(public store:Category
+    ,public slide:Slide
+    ,public auth:Auth
+    ,public jobs:Joblist
+    ,public partner:Partner) { }
 
   ngOnInit() {
+    this.auth.fetchData();
+    this.auth.fetchLog();
     this.store.fetchData();
     this.slide.fetchData();
     this.jobs.fetchData();

@@ -1,0 +1,46 @@
+.footer{
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .footer-content{
+    display: flex;
+    width: 90%;
+    .aboutpost{
+      flex: 1;
+      ul{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        li{
+          line-height: 30px;
+          display: flex;
+          margin-top: 25px;
+          img{
+            width: 30px;
+            height: 30px;
+          }
+          p{
+            padding-left: 25px;
+            margin: 0;
+          }
+        }
+      }
+    }
+    .social{
+      display: inline;
+      img{
+        padding: 8px;
+        width: 36px;
+        height: 36px;
+      }
+    }
+  }
+}
+.dev{
+  height: 80px;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

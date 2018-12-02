@@ -1,0 +1,16 @@
+
+  <form [formGroup]="form">
+      <div class="example-container">
+      <h4>{{error}}</h4>
+    <mat-form-field>
+      <input matInput placeholder="Enter your email" formControlName="email" required>
+      <mat-error *ngIf="email.invalid">This email is invalid.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="password" placeholder="Enter your password" formControlName="password" required>
+        <mat-error *ngIf="password.invalid">This password is invalid.</mat-error>
+      </mat-form-field>
+      <button mat-button (click)="_onSignIn(form.value)">Sign in</button>
+  </div>
+</form>
+

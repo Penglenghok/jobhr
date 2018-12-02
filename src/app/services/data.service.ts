@@ -25,4 +25,8 @@ export class DataService {
     return this.db.collection('partner');
   }
 
+  userRef(uid){
+    return this.db.collection('users').doc<any>(uid);
+  }
+
 }
