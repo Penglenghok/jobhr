@@ -1,6 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Category } from '../../store/category.store';
+import { Slide } from '../../store/slide.store';
+import { Joblist } from '../../store/joblist.store';
+import { Partner } from '../../store/partner.store';
 import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
   SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -8,10 +13,16 @@ import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public store:Category,
+    public slide:Slide,public jobs:Joblist,public partner:Partner) { }
 
   ngOnInit() {
+    this.store.fetchData();
+    this.slide.fetchData();
+    this.jobs.fetchData();
+    this.partner.fetchData();
   }
+
   public show: boolean = true;
 
   public slides = [

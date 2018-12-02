@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { MobxAngularModule } from 'mobx-angular';
 
 import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 import { AppLayoutComponent } from "./layout/app-layout/app-layout.component";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HeaderComponent } from "./layout/header/header.component";
@@ -12,10 +12,20 @@ import { JobListComponent } from "./components/job-list/job-list.component";
 import { JobCategoryComponent } from "./components/job-category/job-category.component";
 
 
+import { AppComponent } from './app.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '../environments/environment';
 
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SWIPER_CONFIG } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { PartnerComponent } from './components/partner/partner.component';
+import { APP_SERVICES } from './services/app.services';
+import { APP_STORE } from './store/app.store';
+import 'firebase/firestore';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   observer: true,
@@ -34,6 +44,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     HomeComponent,
     JobListComponent,
     JobCategoryComponent,
+    PartnerComponent,
 
   ],
   imports: [
@@ -41,12 +52,18 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    SwiperModule
+    SwiperModule,
+    MobxAngularModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [{
-    provide: SWIPER_CONFIG,
-    useValue: DEFAULT_SWIPER_CONFIG
-  }],
+  providers: [
+    APP_SERVICES,
+    APP_STORE,
+    {provide: SWIPER_CONFIG,useValue: DEFAULT_SWIPER_CONFIG}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
